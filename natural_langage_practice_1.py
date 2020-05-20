@@ -77,3 +77,57 @@ for index, item in enumerate(string_split04):
     ans_dict[index + 1] = value_string
 print("問題04")
 print(ans_dict.items())
+
+# 05 与えられたシーケンス（文字列やリストなど）からn-gramを作る関数を作成せよ．この関数を用い，"I am an NLPer"という文から単語bi-gram，文字bi-gramを得よ．
+string05 = "I am an NLPer"
+
+"""
+n-gram関数
+@param word
+@param n_num
+@return n_gram_string_list
+"""
+def N_Gram(word, n_num):
+    string_split05 = list(word)
+    n_gram_string = ""
+    n_gram_string_list = []
+    for i in range(len(string_split05)):
+        if len(string_split05) >= n_num:
+            for j in range(n_num):
+                n_gram_string += string_split05[j]
+            n_gram_string_list.append(n_gram_string)
+            n_gram_string = ""
+        string_split05.pop(0)
+    return n_gram_string_list
+
+print("問題05")
+print(N_Gram(string05, 2))
+
+# 06 "paraparaparadise"と"paragraph"に含まれる文字bi-gramの集合を，それぞれ, XとYとして求め，XとYの和集合，積集合，差集合を求めよ
+string06 = "paraparaparadise"
+string_06 = "paragraph"
+string06_bi_gram = set(N_Gram(string06, 2))
+string_06_bi_gram = set(N_Gram(string_06, 2))
+print(string06_bi_gram)
+print(string_06_bi_gram)
+print("問題06")
+
+s_06_union = string06_bi_gram | string_06_bi_gram
+print("和集合")
+print(s_06_union)
+
+s_intersection = string_06_bi_gram.intersection(string06_bi_gram)
+print("積集合")
+print(s_intersection)
+
+s_diff = string06_bi_gram.difference(string_06_bi_gram)
+print("差集合")
+print(s_diff)
+
+#07. テンプレートによる文生成
+#引数x, y, zを受け取り「x時のyはz」という文字列を返す関数を実装せよ．さらに，x=12, y="気温", z=22.4として，実行結果を確認せよ．
+def formatTemplate(x, y, z):
+    temp07 = "{0}時の{1}は{2}".format(x, y, z)
+    return temp07
+print("問題07")
+print(formatTemplate(12, "気温", 22.4))
