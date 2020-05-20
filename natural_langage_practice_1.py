@@ -4,6 +4,7 @@ string_split00 = list(string00)
 reverse_string00 = ""
 for i in reversed(string_split00):
     reverse_string00 += i
+print("問題00")
 print(reverse_string00)
 
 #01「パタトクカシーー」という文字列の1,3,5,7文字目を取り出して連結した文字列を得よ．
@@ -13,6 +14,7 @@ ans_string01 = ""
 for i in range(len(string_split01)):
     if i == 1 or i == 3 or i == 5 or i == 7:
         ans_string01 += string_split01[i]
+print("問題01")
 print(ans_string01)
 
 # 02「パトカー」＋「タクシー」の文字を先頭から交互に連結して文字列「パタトクカシーー」を得よ．
@@ -30,12 +32,13 @@ for i in range(len(string_split02)):
             ans_string02 += string_split_02[j]
             count02 += 1
             break
+print("問題02")
 print(ans_string02)
 
 # 03 "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."という文を単語に分解し，各単語の（アルファベットの）文字数を先頭から出現順に並べたリストを作成せよ．
 string03 = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
 string_split03 = string03.split(" ")
-print(string_split03)
+print("問題03")
 for i in string_split03:
     print(len(list(i)))
 
