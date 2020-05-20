@@ -38,3 +38,39 @@ string_split03 = string03.split(" ")
 print(string_split03)
 for i in string_split03:
     print(len(list(i)))
+
+# 04"Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."という文を単語に分解し，
+# 1, 5, 6, 7, 8, 9, 15, 16, 19番目の単語は先頭の1文字，それ以外の単語は先頭に2文字を取り出し，取り出した文字列から単語の位置（先頭から何番目の単語か）への連想配列（辞書型もしくはマップ型）を作成せよ．
+string04 = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can"
+string_split04 = string04.split(" ")
+get_first_chara_num_list = [1, 5, 6, 7, 8, 9, 15, 16, 19]
+ans_dict = {}
+
+"""
+文字列の先頭の一文字を取得する関数
+@param String string
+@return string first_chara
+"""
+def getFirstChara(word):
+    word_list = list(word)
+    first_chara = word_list[0]
+    return first_chara
+
+"""
+文字列の先頭の2文字を取得する関数
+@param String string
+@return string first_and_second_chara
+"""
+def getFirstAndSecondChara(word):
+    word_list = list(word)
+    first_and_second_chara = word_list[0] + word_list[1]
+    return first_and_second_chara
+
+for index, item in enumerate(string_split04):
+    if index+1 in get_first_chara_num_list:
+        value_string = getFirstChara(item)
+    else:
+        value_string = getFirstAndSecondChara(item)
+    ans_dict[index + 1] = value_string
+print("問題04")
+print(ans_dict.items())
