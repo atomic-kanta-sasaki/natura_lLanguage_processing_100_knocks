@@ -174,3 +174,30 @@ if result2 != target:
 """
 string09 = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
 string09_split = string09.split(" ")
+print("問題09")
+
+def characterSoherThanTheFirstAndLastCharacters(word):
+    word_list = list(word)
+    need_word = []
+    for index, chara in enumerate(word_list):
+        if index != 0 and index != len(word_list) -1:
+            need_word.append(chara)
+    return need_word
+
+ans_chara_list09 = []
+ans_chara = ""
+ans_sentensce_list09 = []
+ans_sentence09 = ""
+
+for word in string09_split:
+    if len(list(word)) > 4:
+        ans_chara_list09 = characterSoherThanTheFirstAndLastCharacters(word)
+        random.shuffle(ans_chara_list09)
+        ans_chara_list09.insert(0, list(word)[0])
+        ans_chara_list09.append(list(word)[len(word) - 1])
+        ans_chara = ''.join(ans_chara_list09)
+        ans_sentensce_list09.append(ans_chara)
+    else:
+        ans_sentensce_list09.append(word)
+ans_sentence09 = " ".join(ans_sentensce_list09)
+print(ans_sentence09)
