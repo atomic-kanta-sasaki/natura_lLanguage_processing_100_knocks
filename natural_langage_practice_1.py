@@ -1,3 +1,5 @@
+import random
+
 #00. 文字列の逆順
 string00 = "stressed"
 string_split00 = list(string00)
@@ -131,3 +133,44 @@ def formatTemplate(x, y, z):
     return temp07
 print("問題07")
 print(formatTemplate(12, "気温", 22.4))
+
+# 08. 暗号文
+# 与えられた文字列の各文字を，以下の仕様で変換する関数cipherを実装せよ．
+"""
+文字列の暗号化、復号化
+@param target
+@return result
+"""
+def cipher(target):
+    result = ''
+    for c in target:
+        if c.islower():
+            result += chr(219 - ord(c))
+        else:
+            result += c
+    return result
+
+print("問題08")
+# 対象文字列の入力
+target = input('文字列を入力してください--> ')
+
+# 暗号化
+result = cipher(target)
+print('暗号化:' + result)
+
+# 復号化
+result2 = cipher(result)
+print('復号化:' + result2)
+
+# 復号化で元に戻っているかチェック
+if result2 != target:
+    print('元に戻っていない！？')
+
+# 09. Typoglycemia
+"""
+スペースで区切られた単語列に対して，各単語の先頭と末尾の文字は残し，それ以外の文字の順序をランダムに並び替えるプログラムを作成せよ．
+ただし，長さが４以下の単語は並び替えないこととする．
+適当な英語の文（例えば"I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."）を与え，その実行結果を確認せよ．
+"""
+string09 = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+string09_split = string09.split(" ")
