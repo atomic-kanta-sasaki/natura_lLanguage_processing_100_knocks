@@ -11,4 +11,6 @@ with gzip.open('jawiki-country.json.gz', 'rt') as f:
             obj = f.readline()
 
 ## 21
-print(obj)
+for l in obj['text'].split('\n'):
+    if 'Category' in l:
+        print(l)
